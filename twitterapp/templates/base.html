@@ -1,0 +1,34 @@
+
+<html>
+    <head><meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+    {% block title %}
+        <h1>My Twitter app</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Terminator-2-judgement-day.jpg/250px-Terminator-2-judgement-day.jpg">
+    {% endblock %}
+
+    {% block content %}
+        <p>
+            Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.
+        </p>
+    {% endblock %}
+
+    <br><a href="/">Home</a>
+
+
+    <footer>
+    
+        {% if logged_in  %}
+
+            You are logged in as {{data}} <a href="{% url 'logout' %}"> logout</a>
+        {% else %}
+            <a href="{% url 'login-form' %}"> login</a>
+        {% endif %}
+
+    </footer>
+    </body>
+</html>
