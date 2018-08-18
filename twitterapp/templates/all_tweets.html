@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h2>All tweets</h2>
+    <p><a href='{% url "add_tweet" %}'>Add new tweet</a></p>
+        <table border="1">
+            <tr>
+                <th>User</th>
+                <th>Tweet</th>
+                <th>Date</th>
+            </tr>
+            {% for tweet in tweets %}
+
+            <tr>
+                <td>{{tweet.user}}</td>
+                <td>{{tweet.content}}</td>
+                <td>{{tweet.creation_date}}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+
+
+{% endblock %}

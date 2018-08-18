@@ -10,15 +10,42 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 from django.views import View
+from .models import Tweet
+from .forms import AddTweetForm
 
 
 class BaseView(View):
     def get(self, request):
-        base = []
-        return render(request, "base.html", {'base':base})
+        tweets = Tweet.objects.all()
+        return render(request, "all_tweets.html", {'tweets':tweets})
 
     def post(self, request):
-        return HttpResponse('post')
+
+        form = AddTweetForm(request.POST)
+
+
+        if form.is_valid():
+            try:
+                user = request.user
+                tweet = Tweet.objects.create(user=user, content=form.cleaned_data['content'])
+
+                tweets = Tweet.objects.all()
+                return render(request, "all_tweets.html", {'tweets':tweets})
+            except Exception as e:
+                return HttpResponse(e)
+        return HttpResponse('form not valid')
+
+
+
+class AddTweetView(View):
+    def get(self, request):
+        #user=request.user
+        form = AddTweetForm()
+        return render(request, "add_tweet.html", {'form': form})
+
+    def post(self, request):
+
+        return render(request, "add_tweet.html", {'form': form})
 
 
 class Login(View):

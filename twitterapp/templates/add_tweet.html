@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <h2>New Tweet</h2>
+         <form action="{% url 'base_view' %}" method="post">
+            {% csrf_token %}
+            {{form.as_table}}
+            <button type="submit" value="wduś guzik">Wduś guzik Tłita dodawawszy</button>
+        </form>
+<br>
+{{message}}
+
+{% endblock %}
+
+
+

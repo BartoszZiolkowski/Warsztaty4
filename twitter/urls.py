@@ -18,13 +18,14 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from twitterapp.views import BaseView, Login, Logout
+from twitterapp.views import BaseView, Login, Logout, AddTweetView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',BaseView.as_view(), name="base_view"),
     url(r'^login', Login.as_view(), name='login-form'),
     url(r'^logout', Logout.as_view(), name='logout'),
+    path('add_tweet',AddTweetView.as_view(), name="add_tweet"),
 
 
 ]

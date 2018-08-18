@@ -8,7 +8,7 @@
 
     {% block title %}
         <h1>My Twitter app</h1>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Terminator-2-judgement-day.jpg/250px-Terminator-2-judgement-day.jpg">
+    <img align="middle" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Terminator-2-judgement-day.jpg/250px-Terminator-2-judgement-day.jpg">
     {% endblock %}
 
     {% block content %}
@@ -21,7 +21,7 @@
 
 
     <footer>
-    
+
         {% if logged_in  %}
 
             You are logged in as {{data}} <a href="{% url 'logout' %}"> logout</a>
